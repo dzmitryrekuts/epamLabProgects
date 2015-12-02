@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace taxiStation
 {
@@ -36,6 +37,30 @@ namespace taxiStation
 
 
             taxiCarsList.Add(newCar);
+
+        }
+
+
+        public static void DeleteCar(int id)
+        {
+            bool result = true;
+            for (int i = 0; i < taxiCarsList.Count; i++)
+            {
+                MyAutoTaxi car = (MyAutoTaxi)taxiCarsList[i];
+
+                if (car.IdTaxi.Equals(id))
+                {
+
+                    taxiCarsList.Remove(car);
+                    Console.WriteLine("Car - " + car.Model + "  " + car.CarBrand + "  " + car.DateOfProduction + "  " + car.Color + ", Fuel Type - " + car.FuelType + "  " + car.Consumption + " Cost - " + car.Cost + "$ , Id - " + car.IdTaxi + ", Capacity -  " + car.Capacity + " DELETED");
+                    result = false;
+                }
+
+            }
+            if (result)
+            {
+                Console.WriteLine("Car with such id = "+id+" does not exist");
+            }
 
         }
 
@@ -104,15 +129,12 @@ namespace taxiStation
         public static void AddCarFromFile(String filepath)
         {
             string[] lines = System.IO.File.ReadAllLines(@filepath);
-           
-
-            Console.WriteLine("File was founded");
 
             for (int i = 0; i < lines.Length; i++)
             {
                 MyAutoTaxi newFileCar = new MyAutoTaxi();
                 string[] carData = lines[i].Split(new Char[] { ',' });
-              
+
                 newFileCar.CarBrand = carData[1];
                 newFileCar.Model = carData[0];
                 newFileCar.DateOfProduction = Int32.Parse(carData[2]);
@@ -133,13 +155,41 @@ namespace taxiStation
             {
                 foreach (MyAutoTaxi car in taxiCarsList)
                 {
-                    string result = car.CarBrand +", " + car.Model + ", " + car.DateOfProduction + ", " + car.FuelType + ", " + car.Consumption + ", " + car.Color + ", " + car.Cost + ", " + car.IdTaxi + ", " + car.Capacity;
+                    string result = car.CarBrand + ", " + car.Model + ", " + car.DateOfProduction + ", " + car.FuelType + ", " + car.Consumption + ", " + car.Color + ", " + car.Cost + ", " + car.IdTaxi + ", " + car.Capacity;
 
                     outputFile.WriteLine(result);
                 }
+                outputFile.Close();
             }
 
-            Console.WriteLine("Done");
+            Console.WriteLine("Done! File " + filepath + " is changed ");
+        }
+
+        public static void SaveChanges(string inputFile, string outputFile)
+        {
+            Console.WriteLine("Do you  want to save changes? (y/n)");
+
+            string answer;
+            string pattern = "^yes$|^no$";
+            do
+            {
+                Console.WriteLine("'yes' - Save & Exit / 'no' - Exit without saving");
+                answer = Console.ReadLine();
+            } while (Regex.IsMatch(answer, pattern) == false);
+
+            if (answer.Equals("yes"))
+            {
+                Util.OutputDataInFile(inputFile);
+                Util.OutputDataInFile(outputFile);
+            }
+            else
+            {
+                Console.WriteLine("Goodbye");
+            }
+
+            Console.ReadLine();
         }
     }
 }
+
+

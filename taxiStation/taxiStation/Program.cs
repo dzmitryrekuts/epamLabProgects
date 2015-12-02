@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,54 +11,86 @@ namespace taxiStation
 {
     class Program
     {
-      
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Choose comand");
-            Console.WriteLine("1. ");
-            Console.WriteLine("2. ");
-            Console.WriteLine("3. ");
-            Console.WriteLine("4. ");
-            Console.WriteLine("5. ");
-            string action =  Console.ReadLine();
+            string filePathInput = "C:\\Users\\Dzmitry_Rekuts\\Documents\\Visual Studio 2015\\Projects\\taxiStation\\taxiStation\\Cars.txt";
+            string filePathOutput = "C:\\Users\\Dzmitry_Rekuts\\Documents\\Visual Studio 2015\\Projects\\taxiStation\\taxiStation\\ResultFile.txt";
+            Util.fillCollection();
+            bool status = true;
 
-            switch (action)
+            while (status)
             {
-                case "1":
-                    Util.fillCollection();
-                    break;
-                case "2":
-                    Util.fillCollection();
-                    Util.ShowCars();
-                    break;
-                case "3":
-                    break;
-                case "4":
-                    break;
-                case "5":
-                    break;
-                default:
-                    break;
+                Console.WriteLine("Choose comand");
+                Console.WriteLine(" '1'  - Show all cars");
+                Console.WriteLine(" '2' - Add new car ");
+                Console.WriteLine(" '3' - Calculate the price of all cars ");
+                Console.WriteLine(" '4' - Add new cars from file.txt ");
+                Console.WriteLine(" '5' - Write car collection in file.txt ");
+                Console.WriteLine(" '6' - Sort cars by consumption ");
+                Console.WriteLine(" '7' - Delete car by IdTaxi ");
+
+                Console.WriteLine(" '0' - Exit ");
+
+                string action = Console.ReadLine();
+
+                switch (action)
+                {
+                    case "1":
+                        Util.ShowCars();
+                        break;
+
+                    case "2":
+                        Util.AddCar();
+                        Util.ShowCars();
+                        break;
+
+                    case "3":
+                        Console.WriteLine("Total price = $" + Util.GetTotalCost());
+                        break;
+
+                    case "4":
+                        Util.AddCarFromFile(filePathInput);
+                        Console.WriteLine("Data has been read from the file " + filePathInput);
+                        break;
+
+                    case "5":
+                        Util.OutputDataInFile(filePathOutput);
+                        Console.WriteLine("Data were added to the file " + filePathOutput);
+                        break;
+
+                    case "6":
+                        Util.SortByConsumption();
+                        Util.ShowCars();
+                        break;
+
+                    case "7":
+                        try
+                        {
+                            Console.WriteLine("Please enter IdTaxi to delete car");
+                            Util.ShowCars();
+
+                            int IdCarDelete = Int32.Parse(Console.ReadLine());
+                            Util.DeleteCar(IdCarDelete);
+                        }
+                        catch (System.FormatException formatExeption)
+                        {
+                            Console.WriteLine("==Error=====     Incorrect value!    =====Error==");
+                        }
+                        break;
+
+                    case "0":
+                        status = false;
+                        break;
+                    default:
+                        Console.WriteLine("Unknown comand");
+                        break;
+
+                }
 
             }
 
-
-
-            string filePath = "C:\\Users\\Dzmitry_Rekuts\\Documents\\Visual Studio 2015\\Projects\\taxiStation\\taxiStation\\Cars.txt";
-            string resultFilePath = "C:\\Users\\Dzmitry_Rekuts\\Documents\\Visual Studio 2015\\Projects\\taxiStation\\taxiStation\\ResultFile.txt";
-
-            Util.fillCollection();
-           
-            Util.ShowCars();
-            Console.WriteLine("=================================================================");
-            Util.AddCarFromFile(filePath);
-            Util.ShowCars();
-            Console.WriteLine("=================================================================");
-            Util.SortByConsumption();
-            Util.ShowCars();
-            Util.OutputDataInFile(resultFilePath);
-
-            Console.ReadLine();
+            Util.SaveChanges(filePathInput, filePathOutput);
 
         }
     }
