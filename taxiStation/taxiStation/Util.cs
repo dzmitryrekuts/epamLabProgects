@@ -108,6 +108,8 @@ namespace taxiStation
             }
         }
 
+
+        //temp Method to fill Collection
         public static void fillCollection()
         {
             MyAutoTaxi car0 = new MyAutoTaxi("BMW", "X5", 2010, "diesel", 8.3, "black", 50000, 1, 4);
