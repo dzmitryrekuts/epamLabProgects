@@ -1,0 +1,6 @@
+c:\users\dzmitry_rekuts\documents\visual studio 2015\Projects\ConsoleCalc\ConsoleCalc\bin\Debug\ConsoleCalc.exe.config
+C:\Users\Dzmitry_Rekuts\Documents\Visual Studio 2015\Projects\ConsoleCalc\ConsoleCalc\bin\Debug\ConsoleCalc.exe
+C:\Users\Dzmitry_Rekuts\Documents\Visual Studio 2015\Projects\ConsoleCalc\ConsoleCalc\bin\Debug\ConsoleCalc.pdb
+C:\Users\Dzmitry_Rekuts\Documents\Visual Studio 2015\Projects\ConsoleCalc\ConsoleCalc\obj\Debug\ConsoleCalc.csprojResolveAssemblyReference.cache
+C:\Users\Dzmitry_Rekuts\Documents\Visual Studio 2015\Projects\ConsoleCalc\ConsoleCalc\obj\Debug\ConsoleCalc.exe
+C:\Users\Dzmitry_Rekuts\Documents\Visual Studio 2015\Projects\ConsoleCalc\ConsoleCalc\obj\Debug\ConsoleCalc.pdb

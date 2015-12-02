@@ -1,0 +1,8 @@
+Astra, Opel, 2008, diesel, 6.3, green, 15000, 4, 4
+CLS, Mersedes-Benz, 2013, diesel, 7.2, red, 33000, 5, 4
+A4, AUDI, 2009, diesel, 7.5, white, 25000, 2, 4
+X5, BMW, 2010, diesel, 8.3, black, 50000, 1, 4
+X5, BMW, 2010, diesel, 8.3, black, 50000, 6, 4
+ X5, BMW, 2010,  diesel, 8.3,  black, 50000, 10, 4
+ X6, Reno, 2012,  diesel, 8.7,  red, 60000, 22, 4
+X6, BMW, 2012, diesel, 9.5, black, 60000, 3, 4

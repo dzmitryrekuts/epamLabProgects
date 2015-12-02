@@ -1,0 +1,6 @@
+c:\users\dzmitry_rekuts\documents\visual studio 2015\Projects\ListTest\ListTest\bin\Debug\ListTest.exe.config
+c:\users\dzmitry_rekuts\documents\visual studio 2015\Projects\ListTest\ListTest\bin\Debug\ListTest.exe
+c:\users\dzmitry_rekuts\documents\visual studio 2015\Projects\ListTest\ListTest\bin\Debug\ListTest.pdb
+c:\users\dzmitry_rekuts\documents\visual studio 2015\Projects\ListTest\ListTest\obj\Debug\ListTest.csprojResolveAssemblyReference.cache
+c:\users\dzmitry_rekuts\documents\visual studio 2015\Projects\ListTest\ListTest\obj\Debug\ListTest.exe
+c:\users\dzmitry_rekuts\documents\visual studio 2015\Projects\ListTest\ListTest\obj\Debug\ListTest.pdb

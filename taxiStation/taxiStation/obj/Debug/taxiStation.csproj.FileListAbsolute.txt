@@ -1,0 +1,6 @@
+c:\users\dzmitry_rekuts\documents\visual studio 2015\Projects\taxiStation\taxiStation\bin\Debug\taxiStation.exe.config
+C:\Users\Dzmitry_Rekuts\Documents\Visual Studio 2015\Projects\taxiStation\taxiStation\bin\Debug\taxiStation.exe
+C:\Users\Dzmitry_Rekuts\Documents\Visual Studio 2015\Projects\taxiStation\taxiStation\bin\Debug\taxiStation.pdb
+C:\Users\Dzmitry_Rekuts\Documents\Visual Studio 2015\Projects\taxiStation\taxiStation\obj\Debug\taxiStation.csprojResolveAssemblyReference.cache
+C:\Users\Dzmitry_Rekuts\Documents\Visual Studio 2015\Projects\taxiStation\taxiStation\obj\Debug\taxiStation.exe
+C:\Users\Dzmitry_Rekuts\Documents\Visual Studio 2015\Projects\taxiStation\taxiStation\obj\Debug\taxiStation.pdb
