@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace taxiStation
-{
+{   [Serializable]
     class MyAuto
     {
         public MyAuto(string carBrand, string model, int dateOfProduction, string fuelType, double consumption, string color, int cost)
@@ -26,13 +26,7 @@ namespace taxiStation
         }
 
 
-        private string model;
-        private string carBrand;
-        private int dateOfProduction;
-        private string fuelType;
-        private double consumption;
-        private string color;
-        private int cost;
+       
 
         public string Model { get; set; }
         public string CarBrand { get; set; }

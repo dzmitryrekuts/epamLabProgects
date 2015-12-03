@@ -1,0 +1,2 @@
+﻿BMW, X5, 2010, diesel, 8.3, black, 50000, 10, 4
+Reno, X6, 2012, diesel, 8.7, red, 60000, 22, 4

@@ -14,9 +14,12 @@ namespace taxiStation
 
         static void Main(string[] args)
         {
-            string filePathInput = "C:\\Users\\Dzmitry_Rekuts\\Documents\\Visual Studio 2015\\Projects\\taxiStation\\taxiStation\\Cars.txt";
-            string filePathOutput = "C:\\Users\\Dzmitry_Rekuts\\Documents\\Visual Studio 2015\\Projects\\taxiStation\\taxiStation\\ResultFile.txt";
-            Util.fillCollection();
+            string filePathInput = @".\Cars.txt";
+            string filePathOutput = @".\ResultFile.txt";
+            string binaryFile = @".\SuperHumanInfo.dat";
+            // Util.fillCollection();
+           // Util.AddCarFromFile(filePathInput);
+
             bool status = true;
 
             while (status)
@@ -29,6 +32,9 @@ namespace taxiStation
                 Console.WriteLine(" '5' - Write car collection in file.txt ");
                 Console.WriteLine(" '6' - Sort cars by consumption ");
                 Console.WriteLine(" '7' - Delete car by IdTaxi ");
+                Console.WriteLine(" '8' - Save to binary file ");
+                Console.WriteLine(" '9' - Read data from binary file ");
+                Console.WriteLine(" 'f' - Temp method to fill car collection");
 
                 Console.WriteLine(" '0' - Exit ");
 
@@ -77,6 +83,27 @@ namespace taxiStation
                         {
                             Console.WriteLine("==Error=====     Incorrect value!    =====Error==");
                         }
+                        break;
+
+                    case "8":
+                        Util.SaveWithBinarySerialization(binaryFile);
+                        Console.WriteLine("Data saved");
+
+                        break;
+
+                    case "9":
+                        try {
+                            Util.ReadFromBinaryFile(binaryFile);
+                            Console.WriteLine("Data has been read from the binary file " + binaryFile);
+                        }
+                        catch(System.IO.FileNotFoundException fnfEx)
+                        {
+                            Console.WriteLine("Binary file not found");
+                        }
+                        break;
+
+                    case "f":
+                        Util.fillCollection();
                         break;
 
                     case "0":

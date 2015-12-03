@@ -10,8 +10,13 @@ namespace Matrix
     {
         static void Main(string[] args)
         {
-          
-            Matrix.RotateMatrix(Matrix.CreateMatrix());
+
+            int[,] matrix = Matrix.CreateMatrix();
+            Matrix.ShowMatrix(matrix);
+
+            int[,] rotMatrix = Matrix.RotateMatrix(matrix);
+            Matrix.ShowMatrix(rotMatrix);
+
         
 
             Console.ReadLine();

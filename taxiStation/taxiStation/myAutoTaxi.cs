@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace taxiStation
 {
+    [Serializable]
     class MyAutoTaxi : MyAuto
     {
 
@@ -21,9 +22,14 @@ namespace taxiStation
         }
 
         private int idTaxi;
-        private int capacity;
 
-        public int IdTaxi { get; set; }
+        public int IdTaxi
+        {
+            get { return idTaxi; }
+            set { idTaxi = value; }
+        }
+
+
         public int Capacity { get; set; }
 
 

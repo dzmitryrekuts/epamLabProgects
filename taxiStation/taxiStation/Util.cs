@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace taxiStation
 {
@@ -66,6 +67,7 @@ namespace taxiStation
 
         public static void ShowCars()
         {
+
             foreach (MyAutoTaxi car in taxiCarsList)
             {
                 Console.WriteLine("Car - " + car.Model + "  " + car.CarBrand + "  " + car.DateOfProduction + "  " + car.Color + ", Fuel Type - " + car.FuelType + "  " + car.Consumption + " Cost - " + car.Cost + "$ , Id - " + car.IdTaxi + ", Capacity -  " + car.Capacity);
@@ -109,7 +111,7 @@ namespace taxiStation
         }
 
 
-        //temp Method to fill Collection
+        //temp Method to fill car Collection
         public static void fillCollection()
         {
             MyAutoTaxi car0 = new MyAutoTaxi("BMW", "X5", 2010, "diesel", 8.3, "black", 50000, 1, 4);
@@ -181,7 +183,7 @@ namespace taxiStation
 
             if (answer.Equals("yes"))
             {
-                Util.OutputDataInFile(inputFile);
+               
                 Util.OutputDataInFile(outputFile);
             }
             else
@@ -190,6 +192,25 @@ namespace taxiStation
             }
 
             Console.ReadLine();
+        }
+
+        public static void SaveWithBinarySerialization(string filePath)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+
+            using (var fStream = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                formatter.Serialize(fStream, taxiCarsList);
+            }
+        }
+
+        public static void ReadFromBinaryFile(string filePath)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            using (var fStream = File.OpenRead(filePath))
+            {
+                taxiCarsList = (ArrayList)formatter.Deserialize(fStream);
+            }
         }
     }
 }
